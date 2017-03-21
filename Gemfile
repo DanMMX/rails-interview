@@ -51,3 +51,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'angular-rails-templates'
 gem 'pry'
 gem 'responders', '~> 2.0'
+gem 'font-awesome-rails'

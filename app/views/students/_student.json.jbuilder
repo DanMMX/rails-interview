@@ -1,1 +1,1 @@
-json.extract! student, :id, :name, :favoritemovie, :favoritefood, :favoritecolor
+json.extract! student, :id, :name, :lastname, :favoritemovie, :favoritefood, :favoritecolor

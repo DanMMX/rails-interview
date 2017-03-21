@@ -10,13 +10,39 @@
       </form>
       <table class="table table-striped">
         <tr>
-          <th>Name</th>
-          <th>Favorite Movie</th>
+          <th>
+            <a href="#" ng-click="home.setSort('name')">Name</a>
+            <span ng-show="home.isSortedBy('name') && !home.sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="home.isSortedBy('name') && home.sortReverse" class="fa fa-caret-up"></span>
+          </th>
+          <th>
+            <a href="#" ng-click="home.setSort('lastname')">Last Name</a>
+            <span ng-show="home.isSortedBy('lastname') && !home.sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="home.isSortedBy('lastname') && home.sortReverse" class="fa fa-caret-up"></span>
+          </th>
+          <th>
+            <a href="#" ng-click="home.setSort('favoritemovie')">Favorite Movie</a>
+            <span ng-show="home.isSortedBy('favoritemovie') && !home.sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="home.isSortedBy('favoritemovie') && home.sortReverse" class="fa fa-caret-up"></span>
+          </th>
+          <th>
+            <a href="#" ng-click="home.setSort('favoritefood')">Favorite Food</a>
+            <span ng-show="home.isSortedBy('favoritefood') && !home.sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="home.isSortedBy('favoritefood') && home.sortReverse" class="fa fa-caret-up"></span>
+          </th>
+          <th>
+            <a href="#" ng-click="home.setSort('favoritecolor')">Favorite Color</a>
+            <span ng-show="home.isSortedBy('favoritecolor') && !home.sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="home.isSortedBy('favoritecolor') && home.sortReverse" class="fa fa-caret-up"></span>
+          </th>
         </tr>
 
-        <tr ng-repeat="student in home.students | filter:home.search">
+        <tr ng-repeat="student in home.students | filter:home.search | orderBy:home.sortType:home.sortReverse">
           <td>{{ student.name }}</td>
+          <td>{{ student.lastname }}</td>
           <td>{{ student.favoritemovie }}</td>
+          <td>{{ student.favoritefood }}</td>
+          <td>{{ student.favoritecolor }}</td>
         </tr>
       </table>
     </div>
