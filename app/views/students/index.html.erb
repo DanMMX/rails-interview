@@ -1,13 +1,17 @@
-<h1>Listing students {{ctrl.test}}</h1>
+<div class="container-fluid">
+  <div class="col-xs-8 col-xs-offset-2">
+    <h1>Listing students</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>FavoriteMovie</th>
-  </tr>
+    <table class="table table-striped">
+      <tr>
+        <th>Name</th>
+        <th>Favorite Movie</th>
+      </tr>
 
-  <tr ng-repeat='student in ctrl.students'>
-    <td>{{ student.name }}</td>
-    <td>{{ student.movie }}</td>
-  </tr>
-</table>
+      <tr ng-repeat='student in ctrl.students'>
+        <td>{{ student.name }}</td>
+        <td>{{ student.movie }}</td>
+      </tr>
+    </table>
+  </div>
+</div>
