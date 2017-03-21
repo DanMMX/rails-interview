@@ -9,9 +9,9 @@ angular.module('interviewApp')
 
   ctrl.setSort = function (type) {
     if (type === ctrl.sortType) {
-      ctrl.sortReverse = false;
-    } else {
       ctrl.sortReverse = !ctrl.sortReverse;
+    } else {
+      ctrl.sortReverse = false;
     }
 
     ctrl.sortType = type;
@@ -22,11 +22,9 @@ angular.module('interviewApp')
   };
 
   students.$promise.then(function (students) {
-    console.log(students);
     ctrl.students = students;
     ctrl.isLoading = false;
   }, function (err) {
-    console.log(err);
     ctrl.isLoading = false;
     ctrl.hasError = true;
   })
