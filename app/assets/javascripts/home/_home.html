@@ -2,14 +2,19 @@
   <div class="row">
     <div class="col-xs-6 col-xs-offset-3">
       <h1>Listing students</h1>
-
+      <form>
+        <div class="form-group">
+          <label for="search">Filter students</label>
+          <input type="text" name="search" id="search" placeholder="Name, last name or anything" class="form-control" ng-model="home.search">
+        </div>
+      </form>
       <table class="table table-striped">
         <tr>
           <th>Name</th>
           <th>Favorite Movie</th>
         </tr>
 
-        <tr ng-repeat="student in home.students">
+        <tr ng-repeat="student in home.students | filter:home.search">
           <td>{{ student.name }}</td>
           <td>{{ student.favoritemovie }}</td>
         </tr>
