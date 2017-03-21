@@ -1,5 +1,9 @@
 class StudentsController < ApplicationController
   def index
-    #stuff will happen here
+    if params[:movie].nil?
+      @students = Student.all
+    else
+      @students = Student.favoritemovie(params[:movie])
+    end
   end
 end
