@@ -12,4 +12,12 @@ class Student < ActiveRecord::Base
   def has_repeated_name?
     Student.where(:firstname => self.firstname).count > 1
   end
+
+  def to_builder
+    Jbuilder.new do |student|
+      student.name name
+      student.movie favoritemovie
+    end
+  end
+
 end
