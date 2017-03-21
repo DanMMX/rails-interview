@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :students
+    resources :js
   post '/foo' => 'foobar#foo'
 
   # The priority is based upon order of creation: first created -> highest priority.

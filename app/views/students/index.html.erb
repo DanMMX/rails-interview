@@ -1,1 +1,25 @@
-<ui-view></ui-view>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h1>Listing students</h1>
+
+          <table class="table table-striped">
+            <tr>
+              <th>Name</th>
+              <th>FavoriteMovie</th>
+            </tr>
+
+            <% @students.each do |student| %>
+              <tr>
+                <td><%= student.name %></td>
+                <td><a href="?movie=elysium"><%= student.movie %></a></td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
