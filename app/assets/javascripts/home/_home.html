@@ -1,54 +1,70 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-xs-6 col-xs-offset-3" ng-if="home.isLoading">
-      <h1>Loading students <i class="fa-li fa fa-spinner fa-spin"></i></h1>
-    </div>
-    <div class="col-xs-6 col-xs-offset-3" ng-if="!home.isLoading && home.hasError">Something wrong has happened somewhere D:</div>
-    <div class="col-xs-6 col-xs-offset-3" ng-if="!home.isLoading && !home.hasError">
-      <h1>Listing students</h1>
-      <form>
-        <div class="form-group">
-          <label for="search">Filter students</label>
-          <input type="text" name="search" id="search" placeholder="Name, last name or anything" class="form-control" ng-model="home.search">
+    <div class="col-xs-6 col-xs-offset-3">
+      <div class="panel panel-default">
+        <div class="panel-body" ng-if="home.isLoading">
+          <h1>Loading students <i class="fa-li fa fa-spinner fa-spin"></i></h1>
         </div>
-      </form>
-      <table class="table table-striped">
-        <tr>
-          <th>
-            <a href="#" ng-click="home.setSort('name')">Name</a>
-            <span ng-show="home.isSortedBy('name') && !home.sortReverse" class="fa fa-caret-down"></span>
-            <span ng-show="home.isSortedBy('name') && home.sortReverse" class="fa fa-caret-up"></span>
-          </th>
-          <th>
-            <a href="#" ng-click="home.setSort('lastname')">Last Name</a>
-            <span ng-show="home.isSortedBy('lastname') && !home.sortReverse" class="fa fa-caret-down"></span>
-            <span ng-show="home.isSortedBy('lastname') && home.sortReverse" class="fa fa-caret-up"></span>
-          </th>
-          <th>
-            <a href="#" ng-click="home.setSort('favoritemovie')">Favorite Movie</a>
-            <span ng-show="home.isSortedBy('favoritemovie') && !home.sortReverse" class="fa fa-caret-down"></span>
-            <span ng-show="home.isSortedBy('favoritemovie') && home.sortReverse" class="fa fa-caret-up"></span>
-          </th>
-          <th>
-            <a href="#" ng-click="home.setSort('favoritefood')">Favorite Food</a>
-            <span ng-show="home.isSortedBy('favoritefood') && !home.sortReverse" class="fa fa-caret-down"></span>
-            <span ng-show="home.isSortedBy('favoritefood') && home.sortReverse" class="fa fa-caret-up"></span>
-          </th>
-          <th>
-            <a href="#" ng-click="home.setSort('favoritecolor')">Favorite Color</a>
-            <span ng-show="home.isSortedBy('favoritecolor') && !home.sortReverse" class="fa fa-caret-down"></span>
-            <span ng-show="home.isSortedBy('favoritecolor') && home.sortReverse" class="fa fa-caret-up"></span>
-          </th>
-        </tr>
+        <div class="panel-body" ng-if="!home.isLoading && home.hasError">Something wrong has happened somewhere D:</div>
+        <div class="panel-body" ng-if="!home.isLoading && !home.hasError">
+          <h1>Listing students</h1>
+          <form>
+            <div class="form-group">
+              <label for="search">Filter students</label>
+              <input type="text" name="search" id="search" placeholder="Name, last name or anything" class="form-control" ng-model="home.search">
+            </div>
+          </form>
+          <table class="table table-striped">
+            <tr>
+              <th>
+                <a href="#" ng-click="home.setSort('name')">Name</a>
+                <span ng-show="home.isSortedBy('name') && !home.sortReverse" class="fa fa-caret-down"></span>
+                <span ng-show="home.isSortedBy('name') && home.sortReverse" class="fa fa-caret-up"></span>
+              </th>
+              <th>
+                <a href="#" ng-click="home.setSort('lastname')">Last Name</a>
+                <span ng-show="home.isSortedBy('lastname') && !home.sortReverse" class="fa fa-caret-down"></span>
+                <span ng-show="home.isSortedBy('lastname') && home.sortReverse" class="fa fa-caret-up"></span>
+              </th>
+              <th>
+                <a href="#" ng-click="home.setSort('favoritemovie')">Favorite Movie</a>
+                <span ng-show="home.isSortedBy('favoritemovie') && !home.sortReverse" class="fa fa-caret-down"></span>
+                <span ng-show="home.isSortedBy('favoritemovie') && home.sortReverse" class="fa fa-caret-up"></span>
+              </th>
+              <th>
+                <a href="#" ng-click="home.setSort('favoritefood')">Favorite Food</a>
+                <span ng-show="home.isSortedBy('favoritefood') && !home.sortReverse" class="fa fa-caret-down"></span>
+                <span ng-show="home.isSortedBy('favoritefood') && home.sortReverse" class="fa fa-caret-up"></span>
+              </th>
+              <th>
+                <a href="#" ng-click="home.setSort('favoritecolor')">Favorite Color</a>
+                <span ng-show="home.isSortedBy('favoritecolor') && !home.sortReverse" class="fa fa-caret-down"></span>
+                <span ng-show="home.isSortedBy('favoritecolor') && home.sortReverse" class="fa fa-caret-up"></span>
+              </th>
+            </tr>
 
-        <tr ng-repeat="student in home.students | filter:home.search | orderBy:home.sortType:home.sortReverse">
-          <td>{{ student.name }}</td>
-          <td>{{ student.lastname }}</td>
-          <td>{{ student.favoritemovie }}</td>
-          <td>{{ student.favoritefood }}</td>
-          <td>{{ student.favoritecolor }}</td>
-        </tr>
-      </table>
+            <tr ng-repeat="student in home.students | filter:home.search | orderBy:home.sortType:home.sortReverse">
+              <td>{{ student.name }}</td>
+              <td>{{ student.lastname }}</td>
+              <td>{{ student.favoritemovie }}</td>
+              <td>{{ student.favoritefood }}</td>
+              <td>{{ student.favoritecolor }}</td>
+            </tr>
+          </table>
+        </div>
+        <div class="panel-footer">
+          <h1>Foo POST test</h1>
+          <form method="POST" action="/foo">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="valid" value="true">
+                Send valid param
+              </label>
+            </div>
+            <button type="submit" class="btn btn-default">Try Foo</button>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 </div>
