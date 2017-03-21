@@ -1,4 +1,4 @@
-<h1>Listing students</h1>
+<h1>Listing students {{ctrl.test}}</h1>
 
 <table>
   <tr>
@@ -6,10 +6,8 @@
     <th>FavoriteMovie</th>
   </tr>
 
-  <% @students.each do |student| %>
-    <tr>
-      <td><%= student.name %></td>
-      <td><%= student.movie %></td>
-    </tr>
-  <% end %>
+  <tr ng-repeat='student in ctrl.students'>
+    <td>{{ student.name }}</td>
+    <td>{{ student.movie }}</td>
+  </tr>
 </table>
