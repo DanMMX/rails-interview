@@ -17,29 +17,34 @@
           <table class="table table-striped">
             <tr>
               <th>
-                <a href="#" ng-click="home.setSort('name')">Name</a>
-                <span ng-show="home.isSortedBy('name') && !home.sortReverse" class="fa fa-caret-down"></span>
-                <span ng-show="home.isSortedBy('name') && home.sortReverse" class="fa fa-caret-up"></span>
+                <a href="#" ng-click="home.setSort('name')">
+                  Name
+                  <span ng-show="home.isSortedBy('name')" ng-class="{'fa-caret-down': !home.sortReverse, 'fa-caret-up': home.sortReverse}" class="fa"></span>
+                </a>
               </th>
               <th>
-                <a href="#" ng-click="home.setSort('lastname')">Last Name</a>
-                <span ng-show="home.isSortedBy('lastname') && !home.sortReverse" class="fa fa-caret-down"></span>
-                <span ng-show="home.isSortedBy('lastname') && home.sortReverse" class="fa fa-caret-up"></span>
+                <a href="#" ng-click="home.setSort('lastname')">
+                  Last Name
+                  <span ng-show="home.isSortedBy('lastname')" ng-class="{'fa-caret-down': !home.sortReverse, 'fa-caret-up': home.sortReverse}" class="fa"></span>
+                </a>
               </th>
               <th>
-                <a href="#" ng-click="home.setSort('favoritemovie')">Favorite Movie</a>
-                <span ng-show="home.isSortedBy('favoritemovie') && !home.sortReverse" class="fa fa-caret-down"></span>
-                <span ng-show="home.isSortedBy('favoritemovie') && home.sortReverse" class="fa fa-caret-up"></span>
+                <a href="#" ng-click="home.setSort('favoritemovie')">
+                  Favorite Movie
+                  <span ng-show="home.isSortedBy('favoritemovie')" ng-class="{'fa-caret-down': !home.sortReverse, 'fa-caret-up': home.sortReverse}" class="fa"></span>
+                </a>
               </th>
               <th>
-                <a href="#" ng-click="home.setSort('favoritefood')">Favorite Food</a>
-                <span ng-show="home.isSortedBy('favoritefood') && !home.sortReverse" class="fa fa-caret-down"></span>
-                <span ng-show="home.isSortedBy('favoritefood') && home.sortReverse" class="fa fa-caret-up"></span>
+                <a href="#" ng-click="home.setSort('favoritefood')">
+                  Favorite Food
+                  <span ng-show="home.isSortedBy('favoritefood')" ng-class="{'fa-caret-down': !home.sortReverse, 'fa-caret-up': home.sortReverse}" class="fa"></span>
+                </a>
               </th>
               <th>
-                <a href="#" ng-click="home.setSort('favoritecolor')">Favorite Color</a>
-                <span ng-show="home.isSortedBy('favoritecolor') && !home.sortReverse" class="fa fa-caret-down"></span>
-                <span ng-show="home.isSortedBy('favoritecolor') && home.sortReverse" class="fa fa-caret-up"></span>
+                <a href="#" ng-click="home.setSort('favoritecolor')">
+                  Favorite Color
+                  <span ng-show="home.isSortedBy('favoritecolor')" ng-class="{'fa-caret-down': !home.sortReverse, 'fa-caret-up': home.sortReverse}" class="fa"></span>
+                </a>
               </th>
             </tr>
 
