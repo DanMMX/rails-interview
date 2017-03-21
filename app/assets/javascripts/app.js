@@ -1,27 +1,16 @@
-angular.module('interviewApp', ['ui.router', 'templates'])
-.controller('MainCtrl', [function () {
-  this.test = 'Hello world!';
-  this.students = [{
-    name: 'Dan',
-    movie: 'bla'
-  }, {
-    name: 'Dan',
-    movie: 'bla'
-  }, {
-    name: 'Dan',
-    movie: 'bla'
-  }, {
-    name: 'Dan',
-    movie: 'bla'
-  }];
-}])
+angular.module('interviewApp', ['ui.router', 'templates', 'ngResource'])
 .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('home', {
       url: '/',
-      templateUrl: '_home.html',
-      controller: 'MainCtrl',
-      controllerAs: 'ctrl'
+      templateUrl: 'home/_home.html',
+      controller: 'HomeCtrl',
+      controllerAs: 'home',
+      resolve: {
+        students: function (Student) {
+          return Student.query();
+        }
+      }
     });
 
   $urlRouterProvider.otherwise('/');

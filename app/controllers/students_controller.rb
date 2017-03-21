@@ -1,8 +1,11 @@
+require 'pry'
+
 class StudentsController < ApplicationController
   before_action :get_students, only: :index
+  respond_to :html, :json
 
   def index
-    respond_to :html, :json
+    respond_with @students
   end
 
   def get_students
