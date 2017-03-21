@@ -1,6 +1,10 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-xs-6 col-xs-offset-3">
+    <div class="col-xs-6 col-xs-offset-3" ng-if="home.isLoading">
+      <h1>Loading students <i class="fa-li fa fa-spinner fa-spin"></i></h1>
+    </div>
+    <div class="col-xs-6 col-xs-offset-3" ng-if="!home.isLoading && home.hasError">Something wrong has happened somewhere D:</div>
+    <div class="col-xs-6 col-xs-offset-3" ng-if="!home.isLoading && !home.hasError">
       <h1>Listing students</h1>
       <form>
         <div class="form-group">

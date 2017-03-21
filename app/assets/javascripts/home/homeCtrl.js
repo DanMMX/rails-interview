@@ -1,20 +1,33 @@
 angular.module('interviewApp')
 .controller('HomeCtrl', ['students', function (students) {
-  this.test = 'Hello world!';
-  this.sortType = 'name';
-  this.sortReverse = false;
-  this.students = students;
-  this.setSort = function (type) {
-    if (type === this.sortType) {
-      this.sortReverse = false;
+  var ctrl = this;
+
+  ctrl.test = 'Hello world!';
+  ctrl.sortType = 'name';
+  ctrl.sortReverse = false;
+  ctrl.isLoading = true;
+
+  ctrl.setSort = function (type) {
+    if (type === ctrl.sortType) {
+      ctrl.sortReverse = false;
     } else {
-      this.sortReverse = !this.sortReverse;
+      ctrl.sortReverse = !ctrl.sortReverse;
     }
 
-    this.sortType = type;
+    ctrl.sortType = type;
   };
 
-  this.isSortedBy = function (type) {
-    return this.sortType === type;
+  ctrl.isSortedBy = function (type) {
+    return ctrl.sortType === type;
   };
+
+  students.$promise.then(function (students) {
+    console.log(students);
+    ctrl.students = students;
+    ctrl.isLoading = false;
+  }, function (err) {
+    console.log(err);
+    ctrl.isLoading = false;
+    ctrl.hasError = true;
+  })
 }])
